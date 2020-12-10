@@ -95,6 +95,10 @@ class TSPSolver:
 		algorithm</returns> 
 	'''
 
+	# Time Complexity: O(n^2 log^2 n), as the algorithm must find the greedy path
+	#                  for each city.
+	# Space Complexity: O(n), as multiple arrays of length "n" are created.
+
 	def greedy(self, time_allowance=60.0):
 		bssf = None
 		cities = self._scenario.getCities()
@@ -349,7 +353,8 @@ class TSPSolver:
 
 	# Space complexity: O(n)
 	# Time complexity: greedy algorithm + while loop * (generateNextState() + probabilityTest())
-	#                       ?           +    O(1)    * (       ?             +     O(1)        )
+	#                  O(n^2 log^2 n)   +    O(1)    * (       ?             +     O(1)        )
+	#
 	def fancy(self, time_allowance=60.0):
 		results = {}
 		count = 0
